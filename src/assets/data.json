@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "type": 2,
+        "accName": "1231****-WOLFE",
+        "status": 1,
+        "currency": "USD",
+        "balance": 6226.33
+    },
+    {
+        "id": 2,
+        "type": 1,
+        "accName": "5468***-MAENGUE",
+        "status": 0,
+        "currency": "USD",
+        "balance": 10998.10
+    }
+]
