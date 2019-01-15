@@ -40,125 +40,132 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import _ from "lodash";
 
 export default {
-    name: 'Invoices',
-    props: {
-        invoicesData: {
-            type: Array,
-            required: true
-        },
-        activeInvoice: {
-            type: Object
-        }
+  name: "Invoices",
+  props: {
+    invoicesData: {
+      type: Array,
+      required: true
     },
-    data() {
-        return {
-            invoices: this.invoicesData,
-            activeSortHeader: '',
-            activeSortOrder: 'asc',
-            activeSortHeaderIcon: '',
-            activeSortHeaderElement: '',
-            activeInvoiceRow: ''
-        }
+    activeInvoice: {
+      type: Object
+    }
+  },
+  data() {
+    return {
+      invoices: this.invoicesData,
+      activeSortHeader: "",
+      activeSortOrder: "asc",
+      activeSortHeaderIcon: "",
+      activeSortHeaderElement: "",
+      activeInvoiceRow: ""
+    };
+  },
+  methods: {
+    sortInvoices(sortKey) {
+      if (this.activeSortHeader === sortKey) {
+        // toggle sort order
+        this.activeSortOrder = this.activeSortOrder === "desc" ? "asc" : "desc";
+      } else {
+        this.activeSortHeader = sortKey;
+        this.activeSortOrder = "asc";
+      }
+
+      // Sort table by active sort order
+      this.invoices = _.orderBy(this.invoices, sortKey, this.activeSortOrder);
+
+      // Handle active state and icon rotation
+      this.setActive(
+        event.srcElement,
+        this.activeSortOrder === "asc" ? false : true
+      );
     },
-    methods: {
-        sortInvoices(sortKey) {
-            if (this.activeSortHeader === sortKey) {
-                // toggle sort order
-                this.activeSortOrder = (this.activeSortOrder === 'desc') ? 'asc' : 'desc';
-            } else {
-                this.activeSortHeader = sortKey;
-                this.activeSortOrder = 'asc'
-            }
+    setActive(el, rotateIcon) {
+      var newActiveHeader = el.parentNode,
+        oldActiveHeader = this.activeSortHeaderElement,
+        newActiveIcon = el.nextSibling,
+        oldActiveHeaderIcon = this.activeSortHeaderIcon,
+        firstSort = oldActiveHeader === "" ? true : false;
 
-            // Sort table by active sort order
-            this.invoices = _.orderBy(this.invoices, sortKey, this.activeSortOrder);
-
-            // Handle active state and icon rotation
-            this.setActive(event.srcElement, (this.activeSortOrder === 'asc') ? false : true);
-        },
-        setActive(el, rotateIcon) {
-            var newActiveHeader = el.parentNode,
-                oldActiveHeader = this.activeSortHeaderElement,
-                newActiveIcon = el.nextSibling,
-                oldActiveHeaderIcon = this.activeSortHeaderIcon,
-                firstSort = (oldActiveHeader === '') ? true : false;
-
-            if (!firstSort && newActiveHeader === oldActiveHeader) {
-                // Toggle icon rotation
-                (rotateIcon) ? newActiveIcon.classList.add('rotate') : newActiveIcon.classList.remove('rotate');
-            } else {
-                if (!firstSort) {
-                    oldActiveHeader.classList.remove('active');
-                    oldActiveHeaderIcon.classList.remove('rotate');
-                }
-                this.activeSortHeaderElement = newActiveHeader;
-                this.activeSortHeaderIcon = newActiveIcon;
-                newActiveHeader.classList.toggle('active');
-            }
-        },
-        setActiveInvoice (invoice) {
-            if (this.activeInvoiceRow !== '') {
-                this.activeInvoiceRow.classList.remove('active');
-            }
-            this.activeInvoiceRow = event.srcElement.parentNode;
-            this.activeInvoiceRow.classList.add('active');
-            this.$emit('setParentActiveInvoice', invoice);
+      if (!firstSort && newActiveHeader === oldActiveHeader) {
+        // Toggle icon rotation
+        rotateIcon
+          ? newActiveIcon.classList.add("rotate")
+          : newActiveIcon.classList.remove("rotate");
+      } else {
+        if (!firstSort) {
+          oldActiveHeader.classList.remove("active");
+          oldActiveHeaderIcon.classList.remove("rotate");
         }
+        this.activeSortHeaderElement = newActiveHeader;
+        this.activeSortHeaderIcon = newActiveIcon;
+        newActiveHeader.classList.toggle("active");
+      }
     },
+    setActiveInvoice(invoice) {
+      if (this.activeInvoiceRow !== "") {
+        this.activeInvoiceRow.classList.remove("active");
+      }
+      this.activeInvoiceRow = event.srcElement.parentNode;
+      this.activeInvoiceRow.classList.add("active");
+      this.$emit("setParentActiveInvoice", invoice);
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
-    @import './src/assets/settings.scss';
+@import "./src/assets/settings.scss";
 
-    table {
-        width: 100%;
-        box-shadow: 0 3px 1px -2px rgba(0,0,0,0.06), 0 2px 2px 0 rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.06);
-    }
-    caption {
-        text-align: left;
-    }
-    thead tr {
-        background: #fafafa;
-        padding: 12px 24px;
-    }
-    th, td {
-        padding: 16px;
-    }
-    th {
-        text-align: left;
-        position: relative;
-    }
-    a {
-        color: inherit;
-    }
-    tbody tr {
-        cursor: pointer;
-    }
-    tbody tr:hover {
-        background: #fafafa;
-    }
-    tr.active {
-        background: #fafafa;
-    }
-    tr.active td:first-child {
-        border-left: 2px solid #0277FF;
-    }
-    .icon {
-        position: absolute;
-        right: 8px;
-        top: 20px;
-        width: 16px;
-        height: 16px;
-        opacity: 0.3;
-    }
-    th.active .icon {
-        opacity: 1;
-    }
-    .icon.rotate {
-        transform: rotate(-180deg);
-    }
+table {
+  width: 100%;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.06),
+    0 2px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
+}
+caption {
+  text-align: left;
+}
+thead tr {
+  background: #fafafa;
+  padding: 12px 24px;
+}
+th,
+td {
+  padding: 16px;
+}
+th {
+  text-align: left;
+  position: relative;
+}
+a {
+  color: inherit;
+}
+tbody tr {
+  cursor: pointer;
+}
+tbody tr:hover {
+  background: #fafafa;
+}
+tr.active {
+  background: #fafafa;
+}
+tr.active td:first-child {
+  border-left: 2px solid #0277ff;
+}
+.icon {
+  position: absolute;
+  right: 8px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.3;
+}
+th.active .icon {
+  opacity: 1;
+}
+.icon.rotate {
+  transform: rotate(-180deg);
+}
 </style>

@@ -9,18 +9,16 @@
 </template>
 
 <script>
-import data from '../assets/data.json';
+import data from "../assets/data.json";
 export default {
-    name: "Invoices",
-    data: function () {
-        return {
-            invoices: data
-
-        }
-    }
+  name: "Invoices",
+  data: function() {
+    return {
+      invoices: data
+    };
+  }
 };
 </script>
 
 <style scoped lang="scss">
-
 </style>
