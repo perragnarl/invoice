@@ -4,6 +4,8 @@ import _ from "lodash";
 
 Vue.config.productionTip = false;
 
+const storeInvoice = {}
+
 new Vue({
   render: function(h) {
     return h(App);
