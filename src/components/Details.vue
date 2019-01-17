@@ -1,6 +1,7 @@
 <template>
     <section class="details" v-if="invoiceOpen">
         <div class="details__card">
+            <img :src="activeInvoice.image" alt="">
             <h2>{{ activeInvoice.accName }}</h2>
             <ul>
                 <li>
@@ -23,6 +24,10 @@
                     <strong>Currency</strong>
                     {{ activeInvoice.currency }}
                 </li>
+                <li>
+                    <strong>Notes</strong>
+                    {{ activeInvoice.notes }}
+                </li>
             </ul>
         </div>
         <button @click="closeDetails()">✖</button>
@@ -40,9 +45,6 @@ export default {
       type: Boolean
     }
   },
-  data() {
-    return {};
-  },
   methods: {
     closeDetails() {
       this.$emit("parentCloseDetails");
@@ -55,15 +57,17 @@ export default {
 @import "./src/assets/settings.scss";
 
 .details {
-  margin-top: 30vh;
+  margin-top: 20vh;
   text-align: center;
 }
 .details__card {
   background: #fff;
-  min-width: 500px;
+  max-width: 500px;
   padding: $l $xl;
   text-align: left;
+  box-shadow: 0 0 22px 12px rgba(0, 0, 0, 0.08);
 }
+
 h2 {
   color: $contrast;
   margin: 0 0 $l 0;
@@ -92,11 +96,14 @@ button {
   background: transparent;
   border: none;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.8;
   cursor: pointer;
   margin-top: $m;
 }
 button:hover {
   opacity: 1;
+}
+img {
+  margin: (-$l) 0 $l (-$xl);
 }
 </style>

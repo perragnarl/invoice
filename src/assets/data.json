@@ -1,119 +1,152 @@
 [
     {
         "id": 1,
-        "type": 2,
+        "type": "Checkings",
         "accName": "1231****-WOLFE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 6226.33
+        "balance": 6226.33,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 2,
-        "type": 1,
+        "type": "Savings",
         "accName": "5468***-MAENGUE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 10998.10
+        "balance": 10998.10,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 3,
-        "type": 1,
+        "type": "Savings",
         "accName": "1898***-KAISER",
-        "status": 0,
+        "status": "Deactivated",
         "currency": "USD",
-        "balance": 23.86
+        "balance": 23.86,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 4,
-        "type": 2,
+        "type": "Checkings",
         "accName": "1231****-WOLFE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 6226.33
+        "balance": 6226.33,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 5,
-        "type": 1,
+        "type": "Savings",
         "accName": "5468***-MAENGUE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 10998.10
+        "balance": 10998.10,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 6,
-        "type": 1,
+        "type": "Savings",
         "accName": "1898***-KAISER",
-        "status": 0,
+        "status": "Deactivated",
         "currency": "USD",
-        "balance": 23.86
-    },{
+        "balance": 23.86,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
+    },
+    {
         "id": 7,
-        "type": 2,
+        "type": "Checkings",
         "accName": "1231****-WOLFE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 6226.33
+        "balance": 6226.33,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 8,
-        "type": 1,
+        "type": "Savings",
         "accName": "5468***-MAENGUE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 10998.10
+        "balance": 10998.10,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 9,
-        "type": 1,
+        "type": "Savings",
         "accName": "1898***-KAISER",
-        "status": 0,
+        "status": "Deactivated",
         "currency": "USD",
-        "balance": 23.86
-    },{
+        "balance": 23.86,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
+    },
+    {
         "id": 10,
-        "type": 2,
+        "type": "Checkings",
         "accName": "1231****-WOLFE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 6226.33
+        "balance": 6226.33,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 11,
-        "type": 1,
+        "type": "Savings",
         "accName": "5468***-MAENGUE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 10998.10
+        "balance": 10998.10,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 12,
-        "type": 1,
+        "type": "Savings",
         "accName": "1898***-KAISER",
-        "status": 0,
+        "status": "Deactivated",
         "currency": "USD",
-        "balance": 23.86
-    },{
+        "balance": 23.86,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
+    },
+    {
         "id": 13,
-        "type": 2,
+        "type": "Checkings",
         "accName": "1231****-WOLFE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 6226.33
+        "balance": 6226.33,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 14,
-        "type": 1,
+        "type": "Savings",
         "accName": "5468***-MAENGUE",
-        "status": 1,
+        "status": "Active",
         "currency": "USD",
-        "balance": 10998.10
+        "balance": 10998.10,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     },
     {
         "id": 15,
-        "type": 1,
+        "type": "Savings",
         "accName": "1898***-KAISER",
-        "status": 0,
+        "status": "Deactivated",
         "currency": "USD",
-        "balance": 23.86
+        "balance": 23.86,
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://source.unsplash.com/random/500x200"
     }
 ]

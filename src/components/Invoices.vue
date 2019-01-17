@@ -1,42 +1,52 @@
 <template>
+  <section>
+    <h2>Invoices</h2>
     <table>
-        <caption>
-            <h2>Invoices</h2>
-        </caption>
-        <thead>
-            <tr>
-                <th>
-                    <a href="#" @click="sortInvoices('type')">Type</a>
-                    <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
-                </th>
-                <th>
-                    <a href="#" @click="sortInvoices('accName')">Account name</a>
-                    <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
-                </th>
-                <th>
-                    <a href="#" @click="sortInvoices('status')">Status</a>
-                    <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
-                </th>
-                <th>
-                    <a href="#" @click="sortInvoices('currency')">Currency</a>
-                    <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
-                </th>
-                <th>
-                    <a href="#" @click="sortInvoices('balance')">Balance</a>
-                    <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="invoice in invoices" :key="invoice.id" @click="setActiveInvoice(invoice)">
-                <td>{{ invoice.type }}</td>
-                <td>{{ invoice.accName }}</td>
-                <td>{{ invoice.status }}</td>
-                <td>{{ invoice.currency }}</td>
-                <td>{{ invoice.balance }}</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>
+            <div class="flex-wrapper">
+              <a href="#" @click="sortInvoices('type')">Type</a>
+              <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
+            </div>
+          </th>
+          <th>
+            <div class="flex-wrapper">
+              <a href="#" @click="sortInvoices('accName')">Account name</a>
+              <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
+            </div>
+          </th>
+          <th>
+            <div class="flex-wrapper">
+              <a href="#" @click="sortInvoices('status')">Status</a>
+              <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
+            </div>
+          </th>
+          <th>
+            <div class="flex-wrapper">
+              <a href="#" @click="sortInvoices('currency')">Currency</a>
+              <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
+            </div>
+          </th>
+          <th>
+            <div class="flex-wrapper">
+              <a href="#" @click="sortInvoices('balance')">Balance</a>
+              <img src="../assets/arrow-down.svg" alt="arrow icon" class="icon">
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="invoice in invoices" :key="invoice.id" @click="setActiveInvoice(invoice)">
+          <td>{{ invoice.type }}</td>
+          <td>{{ invoice.accName }}</td>
+          <td>{{ invoice.status }}</td>
+          <td>{{ invoice.currency }}</td>
+          <td>{{ invoice.balance }}</td>
+        </tr>
+      </tbody>
     </table>
+  </section>
 </template>
 
 <script>
@@ -65,6 +75,8 @@ export default {
   },
   methods: {
     sortInvoices(sortKey) {
+      event.preventDefault();
+
       if (this.activeSortHeader === sortKey) {
         // toggle sort order
         this.activeSortOrder = this.activeSortOrder === "desc" ? "asc" : "desc";
@@ -119,25 +131,38 @@ export default {
 <style scoped lang="scss">
 @import "./src/assets/settings.scss";
 
-table {
-  width: 100%;
+section {
+  padding: $m 0;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.06),
     0 2px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
+}
+h2 {
+  margin: 0 0 $m $xl;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 caption {
   text-align: left;
 }
-thead tr {
-  background: #fafafa;
-  padding: 12px 24px;
-}
 th,
 td {
-  padding: 16px;
+  padding: $l;
+}
+th:first-child,
+td:first-child {
+  padding-left: $xl;
+}
+th:last-child,
+td:last-child {
+  padding-right: $xl;
 }
 th {
   text-align: left;
-  position: relative;
+  vertical-align: middle;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
 }
 a {
   color: inherit;
@@ -152,17 +177,19 @@ tr.active {
   background: #fafafa;
 }
 tr.active td:first-child {
-  border-left: 2px solid #0277ff;
+  box-shadow: inset 3px 0px 0px 0px $contrast;
+}
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .icon {
-  position: absolute;
-  right: 8px;
-  top: 20px;
   width: 16px;
   height: 16px;
   opacity: 0.3;
 }
-th.active .icon {
+.flex-wrapper.active .icon {
   opacity: 1;
 }
 .icon.rotate {

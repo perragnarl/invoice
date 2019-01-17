@@ -1,29 +1,8 @@
-# invoice
+# Invoice Worksample
 
-## Project setup
-```
-npm install
-```
+## How to get this bad boy up and running
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone this repo
+2. Run `npm install` in root of project
+3. Run `npm run serve` in root of project
+4. Click the link! :fire:

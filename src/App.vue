@@ -1,22 +1,26 @@
 <template>
-    <div id="app">
-        <div class="layout">
-            <div class="layout__invoices">
-                <h1>All invoices 2016</h1>
-                <Invoices
-                    :invoicesData="invoicesData"
-                    @setParentActiveInvoice="setActiveInvoice"
-                />
-            </div>
-            <div class="layout__details">
-                <Details
-                    :activeInvoice="activeInvoice"
-                    :invoiceOpen="invoiceOpen"
-                    @parentCloseDetails="closeDetails()"
-                />
-            </div>
-        </div>
+  <div id="app">
+    <div class="layout">
+      <div class="layout__invoices">
+        <header>
+          <h1>All invoices 2016</h1>
+          <img class="filter" src="./assets/dots.svg" alt="">
+        </header>
+        <Invoices
+          :invoicesData="invoicesData"
+          @setParentActiveInvoice="setActiveInvoice"
+        />
+      </div>
+      <div class="layout__details">
+        <button class="menu-button"><img src="./assets/hamburger.svg" alt=""></button>
+        <Details
+          :activeInvoice="activeInvoice"
+          :invoiceOpen="invoiceOpen"
+          @parentCloseDetails="closeDetails()"
+        />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -67,8 +71,17 @@ body {
   padding: 0;
   color: $text-color;
 }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 h1 {
   color: $contrast;
+}
+.filter {
+  cursor: pointer;
+  width: 64px;
 }
 .layout {
   display: flex;
@@ -85,5 +98,20 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+.menu-button {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  padding: 20px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+.menu-button img {
+  width: 50px;
+}
+.menu-button:hover {
+  box-shadow: 0 0 22px 12px rgba(0, 0, 0, 0.05);
 }
 </style>
